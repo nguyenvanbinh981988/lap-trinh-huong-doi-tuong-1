@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        tem;
+        constructor(tem) {
+            this.tem = tem
+        }
+        fromTemperatureToF(){
+            return ((this.tem*9)/5 + 32)
+        }
+        fromTemperatureToKevin(){
+            return (this.tem+273.15)
+        }
+    }
+
+    let doC25 = new Temperature(25)
+        document.write('Do F la:' + doC25.fromTemperatureToF() + '<br>')
+    document.write('Do F la:' + doC25.fromTemperatureToKevin())
+
+</script>
+
+</body>
+</html>
