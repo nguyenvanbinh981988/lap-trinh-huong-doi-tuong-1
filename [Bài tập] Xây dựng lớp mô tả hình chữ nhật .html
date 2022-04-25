@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1368px" height="768px" style="border: 1px solid indigo"></canvas>
+
+<script>
+    class Rectangle {
+        x;
+        y;
+        height;
+        width
+
+        constructor(height, width, x, y) {
+            this.height = height;
+            this.width = width;
+            this.x = x;
+            this.y = y;
+        }
+
+        Area(){
+           return  area = this.height*this.width
+        }
+
+        perimeter(){
+           return Perimeter = (this.height + this.width)*2
+        }
+    }
+    function creatRectangle(){
+        let ctx = document.getElementById("myCanvas").getContext("2d");
+        let rectangle= new Circle(x, y, height,width)
+        ctx.beginPath();
+        ctx.arc(rectangle.x, rectangle.y, rectangle.height,rectangle.width)
+
+
+    }
+    creatRectangle()
+</script>
+</body>
+</html>
