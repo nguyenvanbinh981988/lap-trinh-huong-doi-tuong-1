@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile</title>
+</head>
+<body>
+<h1>My Mobile</h1>
+<textarea id="display"></textarea> <br>
+<button onclick="checkOnOff()" >On/Off</button>
+<button onclick="turnon()" >Turn on</button>
+<button onclick="turnoff()">Turn off</button>
+<button><div onclick="battery()">charge battery</div></button>
+<br>
+<br>
+<button onclick="inbox()">Inbox</button>
+<button onclick="sent()">Sent</button>
+<button onclick="draft()">Draft</button>
+
+</body>
+</html>
+<script>
+    class Mobile {
+        battery;
+        inbox_Memory;
+        sent_Memory;
+        drafting_Memory
+        turn;
+        constructor(battery,inbox_Memory,sent_Memory,drafting_Memory,turn) {
+            this.battery=battery;
+            this.inbox_Memory=inbox_Memory;
+            this.sent_Memory=sent_Memory;
+            this.drafting_Memory=drafting_Memory;
+            this.turnon=turn;
+        }
+    }
+
+
+    function turnon() {
+        myMobile.turn = true
+        myMobile.battery--
+        document.getElementById('display').value = 'The mobile is turning on'
+    }
+
+
+    function turnoff() {
+        myMobile.turn = false
+        myMobile.battery--
+        document.getElementById('display').value = 'The mobile is turning off'
+    }
+
+        function checkOnOff(){
+                myMobile.battery--
+                if (myMobile.turn) {
+                    document.getElementById('display').value = 'turn on'
+
+                } else {
+                    document.getElementById('display').value = 'turn off'
+
+                }
+    }
+
+    function battery() {
+            if (myMobile.battery < 100) {
+                myMobile.battery++
+            }
+            document.getElementById('display').value = 'battery: ' + myMobile.battery
+    }
+
+    function inbox() {
+        if (myMobile.turn) {
+            myMobile.battery--
+            if (myMobile.inbox_Memory === 0) {
+                myMobile.inbox_Memory = 1
+                document.getElementById('display').value = 'you have a new message'
+            } else {
+                myMobile.inbox_Memory = 0;
+                document.getElementById('display').value = 'you have read all message'
+            }
+        }
+    }
+
+    function sent() {
+        if (myMobile.turn) {
+            myMobile.battery--
+            if (myMobile.sent_Memory === 0) {
+                myMobile.sent_Memory = 1
+                document.getElementById('display').value = 'you have a message not sent'
+            } else {
+                myMobile.sent_Memory = 0;
+                document.getElementById('display').value = 'you have sent all message'
+            }
+        }
+    }
+
+
+    function draft() {
+        if (myMobile.turn) {
+            myMobile.battery--
+            document.getElementById('display').value = 'write a message:'
+        }
+    }
+
+
+    let myMobile = new Mobile(50,0,0,0,true)
+    document.getElementById()
+</script>
