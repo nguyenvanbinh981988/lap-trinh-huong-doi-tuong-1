@@ -5,39 +5,60 @@
     <title>Title</title>
 </head>
 <body>
+Toa do X<input id="toadoX" type="number">
+Toa do Y<input id="toadoY" type="number">
+<br>
+chieu rong<input type="number" id="nhapWeight">
+chieu cao<input type="number" id="nhapHeight">
+<div>Dien tich: <p id="dientich:"></p></div>
+<div>Chu vi: <p id="chuvi:"></p></div>
+<br>
+<button onclick="hinhChuNhat()">tinh</button>
 <canvas id="myCanvas" width="1368px" height="768px" style="border: 1px solid indigo"></canvas>
-
+</script>
+</body>
+</html>
 <script>
     class Rectangle {
         x;
         y;
+        weight;
         height;
-        width
-
-        constructor(height, width, x, y) {
-            this.height = height;
-            this.width = width;
+        color;
+        constructor(x,y,weight,height,color) {
             this.x = x;
             this.y = y;
+            this.height = height;
+            this.weight = weight;
+            this.color = color
         }
 
-        Area(){
-           return  area = this.height*this.width
+        area(){
+            return this.height*this.weight
         }
 
-        perimeter(){
-           return Perimeter = (this.height + this.width)*2
+         perimeter(){
+            return (this.weight+this.height)*2
+        }
+
+        creatRectangle(){
+            let a = document.getElementById('myCanvas');
+            let ctx = a.getContext('2d');
+
+            ctx.fillStyle = this.color;
+            ctx.fillRect(this.x,this.y,this.height,this.weight);
         }
     }
-    function creatRectangle(){
-        let ctx = document.getElementById("myCanvas").getContext("2d");
-        let rectangle= new Circle(x, y, height,width)
-        ctx.beginPath();
-        ctx.arc(rectangle.x, rectangle.y, rectangle.height,rectangle.width)
 
-
-    }
-    creatRectangle()
+function hinhChuNhat() {
+    let ToadoX = parseFloat(document.getElementById('toadoX').value)
+    let ToadoY = parseFloat(document.getElementById('toadoY').value)
+    let chieurong = parseFloat(document.getElementById('nhapWeight').value)
+    let chieucao = parseFloat(document.getElementById('nhapHeight').value)
+    let color = '#00000'
+    let rectangle1 = new Rectangle(ToadoX, ToadoY, chieucao,chieurong, color)
+    document.getElementById('dientich:').innerText=rectangle1.area()
+    document.getElementById('chuvi:').innerText=rectangle1.perimeter()
+    rectangle1.creatRectangle()
+}
 </script>
-</body>
-</html>
